@@ -1,2 +1,7 @@
 venv/
 temp.py
+__pycache__/
+migrations/
+.env
+db.sqlite3
+JudisVillProject/__pycache__/

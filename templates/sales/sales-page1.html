@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{%block content%}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('/static/images/blender-img.webp')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="col-lg-8 col-md-10 mx-auto">
+              <p{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</p>
+            </div>
+              {% endfor %}
+          </ul>
+          {% endif %}
+          <div class="page-heading">
+            <h2>Original {{product.product_name}}</h2>
+            <span class="subheading">Purchase your Quality and Affordable {{product.product_name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ 
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-auto">
+  <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <!-- <div class="card-header"><h3>Description</h3></div> -->
+    <div class="card-body">
+        <h3 class="card-title">Description</h3>
+        <p class="card-text">
+        {%for item in descriptions%}
+      {{item}}<br>
+        {%endfor%}
+      </p>
+    </div>
+  </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-auto">
+  <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <!-- <div class="card-header"><h3>Price</h3></div> -->
+    <div class="card-body text-black bg-dark">
+      <h3 class="card-title">Price</h3>
+      <p class="card-text">
+        {%for item in prices%}
+      {{item}}<br>
+        {%endfor%}
+        </p>
+    </div>
+  </div>
+        </div>
+        <div class="col-lg-4 col-md-auto col-sm-auto mx-auto">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <!-- <div class="card-header"><h3>Price</h3></div> -->
+              <div class="card-body text-black bg-dark">
+                <h3 class="card-title">Price</h3>
+                <p class="card-text">1 blender: 35,000 
+                  <br>2 blender: 60,000 
+                  <br>3 & above: 28,000
+                  </p>
+              </div>
+            </div>
+                  </div>
+  </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+            <br>
+            <br>
+        <h2> To place your order, fill in the form below</h2> <br>
+         
+        <form method="POST" action="" name="sentMessage" id="contactForm" >
+          {%csrf_token%}
+          {%bootstrap_form form %}
+          {%bootstrap_button button_type='submit' content="Click to Place Your Order"%}
+  
+        </form>
+      </div>
+    </div>
+  </div>
+
+{%endblock content%}
