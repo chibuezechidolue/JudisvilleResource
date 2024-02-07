@@ -80,7 +80,7 @@
             <br>
         <h2> To place your order, fill in the form below</h2> <br>
          
-        <form method="POST" action="" name="sentMessage" id="contactForm" >
+        <form method="POST" action="" name="sentMessage" id="contactForm" novalidate>
           {%csrf_token%}
           {%bootstrap_form form %}
           {%bootstrap_button button_type='submit' content="Click to Place Your Order"%}

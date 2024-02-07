@@ -5,6 +5,12 @@ body {
     font-family: Lora, "Times New Roman", serif;
     margin: 0 30px 0 30px ;
   }
+
+  #marge {
+    margin-top: 300px;
+    background-color: #0085a1;
+  }
+
   p {
     line-height: 1.5;
     margin: 30px 0;
