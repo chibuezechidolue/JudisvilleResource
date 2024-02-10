@@ -2,14 +2,22 @@ from django.shortcuts import render,redirect
 from . import forms
 from . import models
 from django.core.mail import send_mail
-import os
 from dotenv import load_dotenv
+from django.template.defaulttags import register
+from django.contrib import messages
+import os
+
 
 load_dotenv()
+# register new filter
+@register.filter(name='split')
+def split(value, key):
+    """
+        Returns the value turned into a list.
+    """
+    return value.split(key)
 
 # Create your views here.
-
-
 def sales_page(request,product_name):
     if request.method=="POST":
         content = request.POST
@@ -21,7 +29,7 @@ def sales_page(request,product_name):
         product_qty=content.get("qty_of_product")
         custom_message=f"\n\nFirst Name: {first_name}  Last Name: {last_name}\nPhone num: {phone_no}\nAlternaive Phone num: {alternate_phone_no}\nAddress: {address}\nproduct qty: {product_qty}"
         send_mail(
-                subject='Product Order from JudisVill Resources ',
+                subject='Product Order from JudisVilleStore ',
                 message=custom_message,
                 from_email=None,
                 recipient_list=[os.environ.get("EMAIL"),],
@@ -35,7 +43,6 @@ def sales_page(request,product_name):
     prod_options={}
     for n in range(len(price_list)):
         prod_options[f"{price_list[n]}"]=price_list[n]
-    print(prod_options)
     form=forms.SalesForm(product_options=prod_options)
     arguments={'form':form,"product":product_obj,
                "descriptions":description_list,"prices":price_list}
@@ -50,4 +57,32 @@ def thank_you_page(request,product_name):
 
 
 def home_page(request):
-    return render(request,'sales/index.html')
+    products=models.SalesPage.objects.all()
+    return render(request,'sales/index.html',{"all_products":products})
+
+
+
+def contact_page(request):
+    if request.method=="POST":
+        content = request.POST
+        email = content.get("email")
+        name = content.get("name")
+        message = content.get("message")
+        phone = content.get("phone")
+        messages.add_message(
+            request, messages.SUCCESS, "Your message was sent successfully"
+        )
+        send_mail(
+            subject='Contact-Us Message from JudisvilleStore',
+            message=f"\n\nName: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}",
+            from_email=None,
+            recipient_list=[os.environ.get("EMAIL"),],
+        )
+
+        return redirect('home-page')
+
+    return render(request,"sales/contact.html")
+
+
+def about_page(request):
+    return render(request,'sales/about.html')

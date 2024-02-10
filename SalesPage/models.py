@@ -1,4 +1,5 @@
 from django.db import models
+# from PIL import Image
 
 # Create your models here.
 
@@ -10,3 +11,13 @@ class SalesPage(models.Model):
 
     def __str__(self) -> str:
         return self.product_name
+    
+    # def save(self, *args,**kwargs):
+    #     super().save(*args,**kwargs)
+    #     img=Image.open(self.product_img.path)
+    #     if img.height>200 or img.width>200:
+    #         output_size=(200,200)
+    #         img.thumbnail(output_size)
+    #         if img.height/img.width<0.75:
+    #             img=img.transpose(Image.ROTATE_270)
+    #     img.save(self.product_img.path)

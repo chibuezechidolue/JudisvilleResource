@@ -1,4 +1,4 @@
-body {
+  body {
     font-size: 20px;
     color: #212529;
     background-color: #EEEDEB;
@@ -9,6 +9,42 @@ body {
   #marge {
     margin-top: 300px;
     background-color: #0085a1;
+  }
+  .st-index {
+    z-index: 1;
+  }
+  .st-price-text {
+    padding-left: 0.5rem;
+  }
+  .st-name-text {
+    padding-left: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+  .st-img {
+    height: 20rem;
+  }
+  .st-contact {
+    color: white;
+  }
+  .st-text {
+    line-height: 1.2;
+    font-size:medium;
+    margin: 0;
+    
+  
+  }
+  .st-anchor:hover {
+    color: #aaa;
+    text-decoration: none;
+  }
+  .st-anchor {
+    text-decoration: none;
+
+  }
+
+  .st-page-heading {
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
   }
 
   p {
@@ -250,6 +286,7 @@ body {
     width: 100%;
     background-color: #212529;
     opacity: 0.5;
+    
   }
   header.masthead .page-heading,
   header.masthead .post-heading,
@@ -406,7 +443,7 @@ body {
     border-top: 1px solid #dee2e6;
   }
   footer {
-    padding: 50px 0 65px;
+    padding-top: 13rem;
   }
   footer .list-inline {
     margin: 0;

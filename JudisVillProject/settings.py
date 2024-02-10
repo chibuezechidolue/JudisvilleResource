@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-6sgws1=yf4$hgp9znj&ruu=1n8hpyj882@)bk)r12&-x=q6hek"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -124,8 +124,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]
 # Set Media files variables
-MEDIA_ROOT= os.path.join(BASE_DIR,"static/images")
-MEDIA_URL= "/images/"
+MEDIA_ROOT= os.path.join(BASE_DIR,"media")
+MEDIA_URL= "/media/"
 
 # Email variables
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
