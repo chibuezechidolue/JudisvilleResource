@@ -3,7 +3,6 @@
     color: #212529;
     background-color: #EEEDEB;
     font-family: Lora, "Times New Roman", serif;
-    margin: 0 30px 0 30px ;
   }
 
   #marge {
@@ -28,10 +27,22 @@
   }
   .st-text {
     line-height: 1.2;
-    font-size:medium;
-    margin: 0;
-    
+    font-size:0.9rem;
+    margin: 0;  
+  }
+  .st-card-item:hover{
+    transform: scale(1.01);
+    /* box-shadow: 0 0 1px 0; */
+    box-shadow: 0 0 0.5rem rgba(0,0,0,.05);
+    /* text-decoration: none; */
+    /* color:#212529;; */
+    /* transform: skew(20deg); */
+  }
   
+  /* .st-card-item{text-decoration: none;} */
+
+  .st-options-text{
+    font-size:1.1rem; 
   }
   .st-anchor:hover {
     color: #aaa;

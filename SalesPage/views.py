@@ -27,7 +27,7 @@ def sales_page(request,product_name):
         alternate_phone_no=content.get('alternative_phone_no')
         address=content.get('address')
         product_qty=content.get("qty_of_product")
-        custom_message=f"\n\nFirst Name: {first_name}  Last Name: {last_name}\nPhone num: {phone_no}\nAlternaive Phone num: {alternate_phone_no}\nAddress: {address}\nproduct qty: {product_qty}"
+        custom_message=f"\n\nFirst Name: {first_name}\nLast Name: {last_name}\nPhone num: {phone_no}\nAlternaive Phone num: {alternate_phone_no}\nAddress: {address}\nproduct qty: {product_qty}"
         send_mail(
                 subject='Product Order from JudisVilleStore ',
                 message=custom_message,

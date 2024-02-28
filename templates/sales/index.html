@@ -4,11 +4,11 @@
 <!-- Page Header -->
 <header class="masthead" style="background-image: url()">
     <div class="overlay"></div>
-    <!-- <div class="container-fluid"> -->
-      <div class="row">
-        <div class="col-lg-2 col-md-6 order-2 order-lg-1 col-sm-auto ">
-          <div class="st-page-heading">
-        <div class="card" style="width: 12rem; height:auto;">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-lg-2 col-md-6 order-2 order-lg-1 col-sm-6 col-6 d-flex justify-content-center">
+          <div class="st-page-heading st-options-text">
+        <div class="card" style="width: 11rem; height:auto;">
           <div class="card-body ">
             <!-- <h5 class="card-title">Special title treatment</h5> -->
             <a class="st-anchor" href="">Supermarket</a> <br>
@@ -64,18 +64,17 @@
         </div>
       </div>
     
-      <div class="col-lg-2 col-md-6 order-3 col-sm-auto mx-0 ps-0">
+      <div class="col-lg-2 col-md-6 order-3 col-sm-6 col-6 d-flex justify-content-center mx-0 ps-0">
         <div class="st-page-heading">
-      <div class="card" style="width: 12rem;">
+      <div class="card" style="width: 11rem;">
         <div class="card-body">
           <h5 class="card-title st-text">Call To Order <br>
             +2349071705603 <br><br>
              Sell on JudisvilleResource<br><br>Best Deals </h5>
         </div>
       </div>
-    </div>
 
-      <div class="card" style="width: 12rem;">
+      <div class="card" style="width: 11rem;">
         <div class="card-body">
           <h5 class="card-title">PROMOTIONS</h5>
           <p class="card-text st-text">Delivery Fees <br> 
@@ -92,9 +91,9 @@
     <div class="container">
     <div class="row">
         {% for product in all_products%}
-        <div class="col-lg-3 col-md-4 col-sm-6  ">   
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6  d-flex justify-content-center">   
         <a class="st-anchor" href="{%url 'sales-page' product.product_name %}">
-        <div class="card" style="width: 13rem; height:auto;">
+        <div class="card st-card-item" style="width: 11rem; height:auto;">
         <img src="{{product.product_img.url}}" class="card-img-top" alt="...">
           <h5 class=" st-name-text st-text">{{product.product_name}} </h5> 
           <p class=" st-price-text st-text">{% with product.product_price|split:"|" as prices %}
